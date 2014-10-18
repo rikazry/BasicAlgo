@@ -40,9 +40,9 @@ int main(){
     node_t<int> n2;
     n2.data = 2;
     n1.next = shared_ptr<node_t<int> >(&n2);
-    cout <<n1.data<<"->"<<n1.next->data;
+    cout <<n1.data<<"->"<<n1.next->data<<"\n";
     shared_ptr<node_t<int> > n0 = shared_ptr<node_t<int> >(&n1);
     shared_ptr<node_t<int> > N1 = reverse_linked_list(n0);
-    cout <<N1->data<<"->"<<N1->next->data;
+    cout <<N1->data<<"->"<<N1->next->data<<"\n";
     return 0;
 }
