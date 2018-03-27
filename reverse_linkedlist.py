@@ -50,8 +50,6 @@ class LinkedList(object):
 
 
 class DoublyLinkedList(LinkedList):
-    def __init__(self):
-        self.head = None
 
     def push(self, data):
         """
