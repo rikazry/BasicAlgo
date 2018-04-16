@@ -30,10 +30,10 @@ class LinkedList(object):
 
     def show(self):
         curr = self.head
-        print(curr.data, end = '')
+        print(curr.data, end='')
         while curr.nxt is not None:
             curr = curr.nxt
-            print('->%d' %curr.data, end = '')
+            print('->%d' % curr.data, end='')
 
     def reverse_iter(self):
         prev = None
