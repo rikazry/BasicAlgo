@@ -6,6 +6,12 @@ class Node(object):
         self.data = data
         self.nxt = None
 
+    def link_node(self, data):
+        if self.nxt is None:
+            self.nxt = Node(data)
+        else:
+            self.nxt.link_node(data)
+
 
 class NodeDouble(Node):
     def __init__(self, data):
@@ -18,15 +24,10 @@ class LinkedList(object):
         self.head = None
 
     def append_node(self, data):
-        new_node = Node(data)
-        if self.head is not None:
-            nxt = self.head.nxt
-            while nxt is not None:
-                nxt = nxt.nxt
-            # below not working!!!
-            nxt = new_node
+        if self.head is None:
+            self.head = Node(data)
         else:
-            self.head = new_node
+            self.head.link_node(data)
 
     def show(self):
         curr = self.head
@@ -43,7 +44,7 @@ class LinkedList(object):
             curr.nxt = prev
             prev = curr
             curr = nxt
-        return prev
+        self.head = prev
 
     def reverse_rec(self):
         pass
@@ -83,6 +84,18 @@ class DoublyLinkedList(LinkedList):
 
 
 if __name__ == "__main__":
+
+    print("### Single Linked List ###")
+    ll = LinkedList()
+    for i in xrange(10):
+        ll.append_node(i)
+    ll.show()
+    print()
+    ll.reverse_iter()
+    ll.show()
+    print()
+
+    print("### Double Linked List ###")
     dll = DoublyLinkedList()
     for i in xrange(10):
         dll.push(i)
@@ -90,6 +103,7 @@ if __name__ == "__main__":
     print()
     dll.reverse()
     dll.show()
+    print()
 
 
 
